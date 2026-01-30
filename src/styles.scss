@@ -1,0 +1,458 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+$Montserrat: "Montserrat", sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+$Raleway: "Raleway", serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+$LibreBaskerville: "Libre Baskerville", serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Judson:ital,wght@0,400;0,700;1,400&display=swap');
+$Judson: "Judson", serif;
+
+$true-white: #ffffff;
+$white: #f4f4f4;
+$light: #ebebeb;
+$dark: rgb(25, 25, 25);
+$black: rgb(0, 0, 0);
+$flair: #FF9049;
+
+* {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.03em;
+    transition: color 0.4s, background-color 0.4s;
+    transition-timing-function: ease-in-out;
+}
+
+.dark-bg {
+    background-color: $flair !important;
+    color: $true-white !important;
+}
+
+html {
+    background-color: $light;
+}
+
+body {
+    font-family: $Raleway;
+    background-color: $white;
+}
+
+nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100vw - 40px);
+    padding: 20px;
+    background-color: $white;
+    z-index: 10;
+
+    .header {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .brand {
+            font-family: $Raleway;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 700;
+            color: $dark;
+        }
+
+        .menu-button {
+            font-size: 24px;
+            color: $dark;
+        }
+    }
+
+    .links {
+        display: none;
+
+        .page-link {
+            text-decoration: none;
+        }
+    }
+
+    .buttons {
+        display: none;
+        color: $light;
+    }
+}
+
+.nav-dropdown-menu {
+    width: 100%;
+    transition: height 0.4s;
+    transition-timing-function: ease-in-out;
+    overflow: hidden;
+
+    .menu-link {
+        text-decoration: none;
+        display: flex;
+        height: 60px;
+        align-items: center;
+        justify-content: center;
+        background-color: $light;
+
+        span {
+            font-size: 16px;
+            color: $dark;
+        }
+    }
+
+    .menu-link:hover {
+        background-color: $true-white;
+    }
+}
+
+.nav-dropdown-menu.show {
+    height: 120px;
+}
+
+.nav-dropdown-menu.hide {
+    height: 0;
+}
+
+.landing-page-jumbotron {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    width: 100vw;
+    // nav height is 68px
+    min-height: calc(100svh - 68px);
+    background-color: $flair;
+
+    .backdrop {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+        margin: 20px;
+        padding: 20px;
+        // border-radius: 20px;
+        // background-color: $flair;
+
+        h1 {
+            max-width: 420px;
+            margin: 20px auto;
+            color: $true-white;
+            text-align: center;
+            font-size: 48px;
+        }
+
+        p {
+            max-width: 500px;
+            color: $true-white;
+            text-align: center;
+            margin: 10px auto;
+            font-size: 24px;
+        }
+
+        br {
+            display: none;
+        }
+
+        .image-widescreen {
+            display: none;
+        }
+
+        .image-narrowscreen {
+            margin: 0 auto;
+            text-align: center;
+
+            svg {
+                width: calc(min(100% - 40px, 260px));
+                height: auto;
+            }
+        }
+
+        .spacer {
+            display: none;
+        }
+
+        .download-button {
+            text-decoration: none;
+            display: inline-block;
+            width: calc(min(100%, max-content));
+            margin: 30px auto;
+            padding: 20px 30px;
+            border-radius: 10px;
+            background-color: $true-white;
+            
+            .button-text {
+                color: $black;
+                text-align: center;
+                font-weight: 700;
+                // clamped between 18px and 36px, equals 24px when page is 1000px wide, scales proportionally with page width
+                font-size: calc(min((18/1000) * max(100vw, 1000px), 36px));
+            }
+
+            .under-text {
+                position: absolute;
+                left: 50%;
+                top: calc(100% + 20px);
+                color: $true-white;
+                font-weight: 500;
+                // clamped between 18px and 36px, equals 24px when page is 1000px wide, scales proportionally with page width
+                font-size: calc(0.75 * min((18/1000) * max(100vw, 1000px), 36px));
+            }
+        }
+    }
+}
+
+.contact-page-jumbotron {
+    width: 100%;
+    // nav height is 68px
+    min-height: calc(100svh - 68px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .text {
+        flex: 60 !important;
+        border-radius: 20px;
+        margin: 0 30px;
+        padding: 20px;
+    }
+}
+
+.alternating-content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: $white;
+
+    .text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+            margin: 20px auto;
+            font-weight: 700;
+            max-width: 600px;
+            // clamped between 24px and 36px, equals 36px when element width is 600px, scales proportionally with element width
+            font-size: calc(max((36/600) * min(100vw - 40px, 600px), 24px));
+            text-align: center;
+        }
+
+        p, li {
+            margin: 6px auto;
+            max-width: 800px;
+            // clamped between 12px and 20px, equals 20px when element width is 800px, scales proportionally with element width
+            font-size: calc(max((20/800) * min(100vw - 40px, 800px), 12px));
+            text-align: center;
+        }
+
+        ul {
+            list-style-position: inside;
+        }
+    }
+
+    .visual {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .image {
+            width: calc(min(100vw - 40px, 600px));
+            max-height: 440px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+    }
+}
+
+footer {
+    padding: 10px 0;
+    font-size: 12px;
+    font-weight: 500;
+    color: $black;
+    text-align: center;
+    background-color: $white;
+}
+
+@media (width > 1000px) {
+    nav {
+        background-color: $white;
+
+        .header{
+            width: 200px;
+            flex: unset;
+
+            .brand {
+                margin-left: 10px;
+                color: $black;
+            }
+
+            .menu-button {
+                display: none;
+            }
+        }
+
+        .links {
+            margin-right: 200px;
+            flex: 1;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+
+            .page-link {
+                text-decoration: none;
+                font-size: 16px;
+                color: $dark;
+                transition: color 0.4s, transform 0.4s;
+            }
+
+            .page-link:hover {
+                transform: translateY(-4px);
+            }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+
+            .link-button {
+                text-decoration: none;
+
+                .icon {
+                    font-size: 24px;
+                    color: $dark;
+                }
+            }
+        }
+    }
+
+    .nav-dropdown-menu.show {
+        height: 0;
+    }
+    
+    .nav-dropdown-menu {
+        .menu-link {
+            background-color: $white;
+            
+            span {
+                color: $white;
+            }
+        }
+    }
+
+    .landing-page-jumbotron {
+        .backdrop {
+            margin-top: 0;
+            padding: 120px;
+            // border-radius: 20px;
+            // background-color: $flair;
+
+            h1 {
+                max-width: unset;
+                text-align: left;
+                margin: unset;
+                // clamped between 48px and 72px, equals 48px when page is 1000px wide, scales proportionally with page width
+                font-size: calc(min((48/1000) * max(100vw, 1000px), 72px));
+            }
+
+            p {
+                max-width: unset;
+                text-align: left;
+                // clamped between 18px and 36px, equals 24px when page is 1000px wide, scales proportionally with page width
+                margin: calc(min((18/1000) * max(100vw, 1000px), 36px)) 0;
+                font-size: calc(min((18/1000) * max(100vw, 1000px), 36px));
+            }
+
+            br {
+                display: block;
+            }
+
+            .image-widescreen {
+                display: block;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+
+                svg {
+                    position: absolute;
+                    top: 50%;
+                    right: 10%;
+                    width: 40%;
+                    height: auto;
+                    max-height: calc(100% - 120px);
+                    transform: translateY(-50%);
+                }
+            }
+
+            .image-narrowscreen {
+                display: none;
+            }
+
+            .spacer {
+                display: block;
+                // clamped between 18px and 36px, equals 36px when page is 1000px wide, scales proportionally with page width
+                margin-top: calc(min((18/1000) * max(100vw, 1000px), 36px));
+            }
+
+            .download-button {
+                width: max-content;
+                margin: unset;
+                margin-left: calc(min((36/1000) * max(100vw, 1000px), 72px));
+                padding: 20px 30px;
+                
+                .button-text {
+                    font-size: calc(min((18/1000) * max(100vw, 1000px), 36px));
+                }
+            }
+        }
+    }
+
+    .contact-page-jumbotron {
+        .text {
+            max-width: unset;
+        }
+    }
+
+    .alternating-content-section {
+        padding: 120px 20px;
+        flex-direction: row;
+
+        .text {
+            flex: 40;
+
+            h2 {
+                max-width: 500px;
+                font-size: 36px
+            }
+
+            p, li {
+                margin: 6px auto;
+                max-width: 500px;
+                font-size: 24px;
+                font-weight: 500;
+            }
+        }
+
+        .visual {
+            flex: 60;
+
+            .image {
+                margin: auto;
+                width: calc(min(60vw - 30px, 1000px));
+            }
+        }
+    }
+
+    .alternating-content-section.flip {
+        flex-direction: row-reverse;
+    }
+}
