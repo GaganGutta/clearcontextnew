@@ -27,6 +27,7 @@ const ContactPage = () => {
                         <motion.div className={"text dark-bg"} {...fadeInProps(0.6)} >
                             <motion.h2 {...fadeInProps(0.8)} >Contact Us</motion.h2>
                             <motion.p {...fadeInProps(1.0)} >clearcontext2025@gmail.com</motion.p>
+                            <motion.p {...fadeInProps(1.0)} >171 fearing st, JQA Hall, Amherst, MA, 1003</motion.p>
                         </motion.div>
                     }
                     ImageComponent={ContactImage} staggeredFade fadeDelay={0.4} />
